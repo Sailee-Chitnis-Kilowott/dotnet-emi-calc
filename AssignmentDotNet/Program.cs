@@ -6,9 +6,25 @@ using System.Linq;
 
 namespace AssignmentDotNet
 {
+
+    internal class Calc
+    {
+
+                public  double CalculateEmi(double p,double i,double t,double n)
+             {
+
+                  double emi;
+                  emi=p * Math.Pow((1 + i / n),
+                                                 (n * t));
+                  return emi/24;
+
+
+
+                 }
+    }
     internal class Program
     {
-      
+        
         static void Main(string[] arg)
         {
             
