@@ -10,7 +10,7 @@ namespace EmiApp
                 var p = request.Principal;
                 var t = request.LoanDurationInYearCount;
                 var i = request.InterestRateInPercentage/100;
-                var r = (double)p * Math.Pow(1 + (i / 365), 365 * t);
+                var r = (double)p * Math.Pow(1 + (i / 365), 365 * t)-(double)p;
                 response.EmiPayment = (decimal)r;
                 return response;
             }
