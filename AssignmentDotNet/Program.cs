@@ -27,10 +27,7 @@ namespace AssignmentDotNet
                 Console.Write("Enter the months :");
                 double n = Convert.ToDouble(Console.ReadLine());
 
-              
-
-
-                    var test = new EmiCalculator();
+                var test = new EmiCalculator();
 
                 double emi = test.CalculateEmi(p, i, t, n);
 
