@@ -13,25 +13,40 @@ namespace AssignmentDotNet
         
         static void Main(string[] arg)
         {
-            
-            Console.Write("Enter the principal amount :");
-            double p = Convert.ToDouble(Console.ReadLine());
+            try
+            {
+                Console.Write("Enter the principal amount :");
+                double p = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter the rate of interest from financer :");
-            double i = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter the rate of interest from financer :");
+                double i = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter the loan duration :");
-            double t = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter the loan duration :");
+                double t = Convert.ToDouble(Console.ReadLine());
 
-            Console.Write("Enter the months :");
-            double n = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Enter the months :");
+                double n = Convert.ToDouble(Console.ReadLine());
+
+              
 
 
-            var test = new EmiResult();
+                    var test = new EmiCalculator();
 
-            double emi = test.CalculateEmi(p,i,t,n);
+                double emi = test.CalculateEmi(p, i, t, n);
 
-            Console.WriteLine("Monthly Emi : " +Math.Round(emi,2) + " INR");
+                Console.WriteLine("Monthly Emi : " + Math.Round(emi, 2) + " INR");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Please enter valid integer");
+            }
+
+            finally
+            {
+                Console.WriteLine("Please enter the valid inputs");
+               
+            }
+           
 
         }
 

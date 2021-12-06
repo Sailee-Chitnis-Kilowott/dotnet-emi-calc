@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace AssignmentDotNet
 {
-    internal class EmiResult
+
+    internal class EmiCalculator
     {
+        
         public double CalculateEmi(double p, double i, double t, double n)
         {
 
