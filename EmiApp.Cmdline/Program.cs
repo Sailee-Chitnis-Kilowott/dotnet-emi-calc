@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace EmiApp.Cmdline
 {
@@ -12,10 +12,24 @@ namespace EmiApp.Cmdline
             #region monthly compounding
             var emiMonthly = emiCalculator.CalculateMonthlyEmi(emiRequest);
             if (string.IsNullOrEmpty(emiMonthly.ErrorMessage))
-                Console.WriteLine($"Monthly EMI is {emiMonthly}");
+             
+                Console.WriteLine($"Monthly EMI is {emiMonthly.EmiPayment}");
             else 
                 Console.WriteLine(emiMonthly.ErrorMessage);
-            #endregion 
+            
+            #endregion
+
+            var emiDaily = emiCalculator.CalculateDailyEmi(emiRequest);
+            if (string.IsNullOrEmpty(emiDaily.ErrorMessage))
+                Console.WriteLine($"Daily EMI is {emiDaily.EmiPayment}");
+            else
+                Console.WriteLine(emiDaily.ErrorMessage);
+
+            var emiContinous = emiCalculator.CalculateContinousEmi(emiRequest);
+            if (string.IsNullOrEmpty(emiContinous.ErrorMessage))
+                Console.WriteLine($"Continous EMI is {emiContinous.EmiPayment}");
+            else
+                Console.WriteLine(emiContinous.ErrorMessage);
 
             // fill other regions below...
 
