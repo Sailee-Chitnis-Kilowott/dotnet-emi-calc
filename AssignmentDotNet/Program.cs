@@ -7,21 +7,7 @@ using System.Linq;
 namespace AssignmentDotNet
 {
 
-    internal class Calc
-    {
-
-                public  double CalculateEmi(double p,double i,double t,double n)
-             {
-
-                  double emi;
-                  emi=p * Math.Pow((1 + i / n),
-                                                 (n * t));
-                  return emi/24;
-
-
-
-                 }
-    }
+  
     internal class Program
     {
         
@@ -41,7 +27,7 @@ namespace AssignmentDotNet
             double n = Convert.ToDouble(Console.ReadLine());
 
 
-            var test = new Calc();
+            var test = new EmiResult();
 
             double emi = test.CalculateEmi(p,i,t,n);
 
