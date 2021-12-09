@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Models;
 namespace WebApplication2.Controllers
 {
@@ -24,13 +24,19 @@ namespace WebApplication2.Controllers
             request.LoanDurationInYearCount = duration;
            
             
-            double Result = (double)request.Principal * System.Math.Pow(1 + (request.InterestRateInPercentage / 100)/12, request.LoanDurationInYearCount * 12);
-         
-        
-            request.Result = Result;
+            double MonthlyEmi = (double)request.Principal * System.Math.Pow(1 + (request.InterestRateInPercentage / 100)/12, request.LoanDurationInYearCount * 12);
+            double e = 2.7183;
+            double ContinousEmi = (double)request.Principal * System.Math.Pow(e, (request.InterestRateInPercentage/100 * request.LoanDurationInYearCount));
+            double DailyEmi = ((double)request.Principal * System.Math.Pow(1 + ((request.InterestRateInPercentage / 100) / 365), 365 * request.LoanDurationInYearCount)) - (double)request.Principal;
+
+            request.MonthlyEmi = MonthlyEmi;
+            request.ContinousEmi = ContinousEmi;
+            request.DailyEmi = DailyEmi;
+
             return View(request);
             
 
         }
     }
 }
+
